@@ -6,9 +6,9 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = Math.floor((Math.random() * 5));
-    this.y = Math.floor((Math.random() * 6));
-    this.speed = 1;
+    this.x = -1;
+    this.y = Math.floor((Math.random() * 3))+0.5;
+    this.speed = Math.random()*2 +1;
 };
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -16,8 +16,15 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x ;
-    this.y = this.x ;
+    if (this.x < 5) {
+        this.x += dt* this.speed;
+        this.y = this.y ;
+    } else {
+        this.x = -1;
+        this.y = Math.floor((Math.random() * 3))+0.5;
+        this.speed = Math.random()*2 +1;
+    }
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -31,7 +38,7 @@ Enemy.prototype.render = function() {
 var Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = Math.floor((Math.random() * 5));
-    this.y = Math.floor((Math.random() * 6));
+    this.y = 5-0.5;
     this.speed = 1;
 }
 
@@ -47,13 +54,30 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(command) {
     if (command === 'left') {
         this.x -= 1;
+        if (this.x === -1) {
+        this.x = 0;
+        }
     } else if (command === 'up') {
         this.y -= 1;
+        if (this.y === -0.5) {
+        this.y = 5-0.5;
+        }
     } else if (command === 'right') {
         this.x += 1;
+        if (this.x === 5) {
+        this.x = 4;
+        }
     } else if (command === 'down') {
         this.y += 1;
+        if (this.y === 5.5) {
+        this.y = 5-0.5;
+        }
+    };
+    if (this.x === allEnemies[0].x && this.y === allEnemies[0].y) {
+        this.x = Math.floor((Math.random() * 5));
+        this.y = 5-0.5;
     }
+
 };
 
 // Now instantiate your objects.
@@ -62,8 +86,11 @@ Player.prototype.handleInput = function(command) {
 var allEnemies = [];
 var E1 = new Enemy();
 var E2 = new Enemy();
+var E3 = new Enemy();
 allEnemies.push(E1);
 allEnemies.push(E2);
+allEnemies.push(E3);
+
 
 var player = new Player();
 
