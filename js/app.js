@@ -24,6 +24,10 @@ Enemy.prototype.update = function(dt) {
         this.y = Math.floor((Math.random() * 3))+0.5;
         this.speed = Math.random()*2 +1;
     }
+    if (player.x == Math.floor(this.x+0.5) && player.y== this.y){
+        player.x = Math.floor((Math.random() * 5));
+        player.y = 5-0.5;;
+    }
 
 };
 
@@ -73,10 +77,7 @@ Player.prototype.handleInput = function(command) {
         this.y = 5-0.5;
         }
     };
-    if (this.x === allEnemies[0].x && this.y === allEnemies[0].y) {
-        this.x = Math.floor((Math.random() * 5));
-        this.y = 5-0.5;
-    }
+
 
 };
 
