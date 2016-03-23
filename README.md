@@ -1,11 +1,15 @@
-frontend-nanodegree-arcade-game
-===============================
+# Welcome to "It's OK to start over"
 
-Students should use this [rubric](https://www.udacity.com/course/viewer/#!/c-nd001/l-2696458597/m-2687128535) for self-checking their submission.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## How to start
+After downloading this whole repo to your computer, all you have to do is find document called "index.html" and open it. 
 
-1. Moving Enemy (DONE)
-2. Collison
-3. Random Star
-4. Counts of Start collection
+## How to play
+It's super easy game. You only need to move the little you at the bottom of the chessboard to anywhere you want using arrow keys. 
+
+## "It's OK to start over"
+We don't record or rank your performance by any standard, so you don't need to worry any risk of embrassment and frustration caused by some other game like "snappy bird". Remember! It's totally ok to start over again and again!!!
+
+
+Hope you will enjoy the game!
+"It's OK to start over" development team  
